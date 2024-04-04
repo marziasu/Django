@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Add Stuffs</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="students.html">Stuffs</a></li>
+                           <li class="breadcrumb-item active">Add Stuffs</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+  <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <form method="post" action="{% url 'add_stuff' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span>Stuff Information</span></h5>
+                                 </div>
+                               {% include 'includes/messages.html' %}
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Profile Picture</label>
+                                       <input type="file" class="form-control" name="profile_pic" required>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>First Name</label>
+                                       <input type="text" class="form-control" name="first_name" required>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Last Name</label>
+                                       <input type="text" class="form-control" name="last_name" required>
+                                    </div>
+                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Email</label>
+                                       <input type="email" class="form-control" name="email"  required>
+                                    </div>
+                                 </div>
+                               <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>User Name</label>
+                                       <input type="text" class="form-control" name="user_name"  required>
+                                    </div>
+                                 </div>
+                               <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Password</label>
+                                       <input type="text" class="form-control" name="password" required>
+                                    </div>
+                                 </div>
+
+                               <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Gender</label>
+                                       <select class="form-control" name="gender" required>
+                                          <option >Select Gender</option>
+                                          <option value="Female">Female</option>
+                                          <option value="Male">Male</option>
+                                          <option value="Others">Others</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                               <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Address</label>
+                                       <textarea class="form-control" name="address" required></textarea>
+                                    </div>
+                                 </div>
+                                 <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                 </div>
+
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+{% endblock %}

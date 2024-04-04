@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="{% url 'speak' %}">
+      {% csrf_token %}
+        <!--<div class="col-12 col-sm-6">
+            <div class="form-group">
+               <label>Leave Date</label>
+               <input type="date" class="form-control" name="leave_date" required>
+            </div>
+         </div> -->
+      <button type="submit" class="btn btn-primary">Speak</button>
+        <div class="col-sm-11">
+            <div class="form-group">
+               <label>Leave Message</label>
+               <textarea class="form-control" name="leave_message" style="height:250px;" >{{text}}</textarea>
+            </div>
+        </div>
+</form>
+<form method="POST" action="{% url 'stuff_apply_leave">
+    {% csrf_token %}
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Apply</button>
+     </div>
+</form>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Edit Department</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="departments.html">Department</a></li>
+                           <li class="breadcrumb-item active">Edit Department</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+{% include 'includes/messages.html' %}
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <form method="post" action="{% url 'update_department' %}">
+                              {% csrf_token %}
+                              <div class="row">
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span>Department Details</span></h5>
+                                 </div>
+
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Department Name</label>
+                                       <input type="text" class="form-control" name="department_name" value="{% for i in department %}{{i.dept_name}}{% endfor %}">
+                                       <input type="text" class="form-control"  name="department_id" value="{% for i in department %}{{i.id}}{% endfor %}" hidden>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Head of Department Name</label>
+                                       <input type="text" class="form-control" name="hod_name" value="{% for i in department %}{{i.hod_name}}{% endfor %}">
+                                    </div>
+                                 </div>
+
+                                 <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">submit</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+{% endblock %}
